@@ -563,6 +563,41 @@ TreeNode* deserialize(string data) {
   return org_root;
 }
 
+/*****************************LEET CODE *****************************/
+TreeNode* addOneRow(TreeNode* root, int val, int depth) {
+  if (depth == 1) return new TreeNode(val,root,nullptr);;
+
+  queue<TreeNode*> qu;
+  qu.push(root);
+  --depth;
+
+  while (--depth) {
+    int n = qu.size();
+    for (int i = 0; i < n; ++i) {
+      TreeNode* cur = qu.front();
+      qu.pop();
+      if (cur->left)
+        qu.push(cur->left);
+      if (cur->right)
+        qu.push(cur->right);
+    }
+  }
+
+  int n = qu.size();
+  for (int i = 0; i < n; ++i) {
+    TreeNode* cur = qu.front();
+    qu.pop();
+
+    TreeNode* newNode1 = new TreeNode(val);
+    TreeNode* newNode2 = new TreeNode(val);
+    newNode1->left = cur->left;
+    newNode2->right = cur->right;
+    cur->left = newNode1;
+    cur->right = newNode2;
+  }
+  return root;
+}
+
 /*******************************************************************************/
 
 int main() {
