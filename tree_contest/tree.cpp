@@ -565,7 +565,9 @@ TreeNode* deserialize(string data) {
 
 /*****************************LEET CODE *****************************/
 TreeNode* addOneRow(TreeNode* root, int val, int depth) {
-  if (depth == 1) return new TreeNode(val,root,nullptr);;
+  if (depth == 1)
+    return new TreeNode(val, root, nullptr);
+  ;
 
   queue<TreeNode*> qu;
   qu.push(root);
@@ -597,6 +599,33 @@ TreeNode* addOneRow(TreeNode* root, int val, int depth) {
   }
   return root;
 }
+/*****************************LEET CODE *****************************/
+
+void go_go_getSmallest(TreeNode* root, string tempAns, set<string>& ans) {
+  tempAns = tempAns + (char)(root->val + 'a');
+
+  if (root->right == nullptr && root->left == nullptr) {
+    reverse(tempAns.begin(), tempAns.end());
+    ans.insert(tempAns);
+    return;
+  }
+
+  if (root->left != nullptr) {
+    go_go_getSmallest(root->left, tempAns, ans);
+  }
+
+  if (root->right != nullptr) {
+    go_go_getSmallest(root->right, tempAns, ans);
+  }
+}
+string smallestFromLeaf(TreeNode* root) {
+  if (root == nullptr)
+    return "";
+  set<string> ans;
+  go_go_getSmallest(root, "", ans);
+
+  return *(ans.begin());
+}
 
 /*******************************************************************************/
 
@@ -609,7 +638,6 @@ int main() {
   org_root = addBinaryTreeNode(new TreeNode(4));
   return 0;
 }
-
 /*
 
   #pragma GCC optimize("O3", "unroll-loops")
