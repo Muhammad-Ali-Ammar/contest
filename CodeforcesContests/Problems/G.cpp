@@ -11,7 +11,6 @@ using namespace std;
 
 #define lim(x) (x.size())
 #define isLower(x) ((x & 0b100000) >> 5)
-#define Ceil(DUMMAY1, DUMMAY2) ((DUMMAY1 + DUMMAY2 - 1) / DUMMAY2)
 /*........... Print Part ........................*/
 #define watch(x) cout << (#x) << " = " << x << endl
 #define print2dArray(arrrr)       \
@@ -46,21 +45,33 @@ using namespace std;
 
 /*............................................................................*/
 
+#define all(dummay) dummay.begin(), dummay.end()
 #define isVisited(dummmay, element) (dummmay.find(element) != dummmay.end())
-#define MB(X, Y) (make_pair(x, y))
+#define MB make_pair
 
 typedef pair<int, int> pii;
 typedef pair<pii, int> piii;
 typedef long long ll;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*....... Interactive Problems .................*/
 
+string ask(ll guessedNumber) {
+  cout << guessedNumber << endl;
+  cout.flush();
+
+  string ret;
+  cin >> ret;
+  return ret;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void solve();
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int main() {
   int t = 1;
-  // scanf("%d", &t);
+  scanf("%d", &t);
   while (t--) {
     solve();
   }
@@ -68,46 +79,4 @@ int main() {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void solve() {
-  string s1, s2;
-
-  freopen("in.txt", "r", stdin);
-  freopen("out.txt", "w", stdout);
-  while (cin >> s1 >> s2) {
-    // cin >> s2;
-    // if (s1 == "0" || s2 == "0") {
-    //   cout << "0" << endl;
-    //   continue;
-    // }
-    int n1 = s1.size();
-    int n2 = s2.size();
-    // if (n1 + n2 == 0) {
-    //   cout << "" << endl;
-    //   continue;
-    // }
-    string ans = string(n1 + n2, '0');
-    int idx = n2 + n1 - 1;
-    int carry = 0;
-    for (int i = n2 - 1; ~i; --i) {
-      int dig2 = s2[i] - '0';
-      for (int j = n1 - 1; ~j; --j) {
-        idx = i + j + 1;
-        carry += (s1[j] - '0') * dig2 + (ans[idx] - '0');
-        ans[idx] = (carry % 10) + '0';
-        carry /= 10;
-      }
-      while (carry) {
-        idx--;
-        ans[idx] = (carry % 10) + '0';
-        carry /= 10;
-      }
-    }
-    while (carry) {
-      idx--;
-      ans[idx] = (carry % 10) + '0';
-      carry /= 10;
-    }
-
-    cout << ans.substr(idx) << endl;
-  }
-}
+void solve() {}

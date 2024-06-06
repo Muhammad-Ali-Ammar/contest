@@ -71,7 +71,7 @@ void solve();
 
 int main() {
   int t = 1;
-  // scanf("%d", &t);
+  scanf("%d", &t);
   while (t--) {
     solve();
   }
@@ -79,10 +79,4 @@ int main() {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void solve() {
-  ll left = 1, right = 1e6, ans = -1;
-
-  while (left <= right) {
-    ll mid = right + left >> 1;
-  }
-}
+void solve() {}
