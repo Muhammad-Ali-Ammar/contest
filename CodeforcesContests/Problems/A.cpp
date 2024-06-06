@@ -3,21 +3,16 @@
 using namespace std;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#define BOOST_SPEED                   \
-  {                                   \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(nullptr);                 \
-    cout.tie(nullptr);                \
-  }
 
 #define endl "\n"
-#define rep(i, n) for (int i = 0; i < n; ++i)
-#define watch(x) cout << (#x) << " = " << x << endl
-#define lim(x) (x.size())
-#define appendNtimes(str, N, word)          \
-  for (int DumMy = 0; DumMy < (N); ++DumMy) \
-    str += word;
 
+#define rep(i, START_DUMMARY, END_DUMAMY) \
+  for (int i = START_DUMMARY; i < (END_DUMAMY); ++i)
+
+#define lim(x) (x.size())
+#define isLower(x) ((x & 0b100000) >> 5)
+/*........... Print Part ........................*/
+#define watch(x) cout << (#x) << " = " << x << endl
 #define print2dArray(arrrr)       \
   for (auto dummay : arrrr) {     \
     for (auto dummay2 : dummay) { \
@@ -48,22 +43,33 @@ using namespace std;
   }                                                       \
   cout << endl;
 
-#define pr pair<int, int>
+/*............................................................................*/
 
+#define all(dummay) dummay.begin(), dummay.end()
 #define isVisited(dummmay, element) (dummmay.find(element) != dummmay.end())
-#define MB(X, Y) (make_pair(x, y))
+#define MB make_pair
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+typedef pair<int, int> pii;
+typedef pair<pii, int> piii;
 typedef long long ll;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*....... Interactive Problems .................*/
 
+string ask(ll guessedNumber) {
+  cout << guessedNumber << endl;
+  cout.flush();
+
+  string ret;
+  cin >> ret;
+  return ret;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void solve();
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int main() {
-  // BOOST_SPEED
-
   int t = 1;
   scanf("%d", &t);
   while (t--) {
@@ -74,4 +80,3 @@ int main() {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void solve() {}
-
