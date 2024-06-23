@@ -7,22 +7,22 @@ int main() {
   /************************** Binary Search **********************/
   /*.......................................................................*/
 
-  vector<int> v5 = {10, 20, 30, 40, 50};
-  bool ok = binary_search(v5.begin(), v5.end(), 20);
-  cout << ok << endl;
+  // vector<int> v5 = {10, 20, 30, 40, 50};
+  // bool ok = binary_search(v5.begin(), v5.end(), 20);
+  // cout << ok << endl;
 
   int max_range_possible = 10;
-  int left = 1, right = max_range_possible;
+  int low = 1, high = max_range_possible;
   int ans = -1;
-  while (left <= right) {
+  while (low <= high) {
     // ans should be updated ...
-    int mid = left + right >> 1;
+    int mid = low + high >> 1;
     //   if () {
-    //     right = mid - 1;
+    //     high = mid - 1;
     //   } else {
-    //     left = mid + 1;
+    //     low = mid + 1;
     //   }
   }
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
+
